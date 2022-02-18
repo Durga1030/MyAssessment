@@ -1,0 +1,393 @@
+{
+	"info": {
+		"_postman_id": "d52bc754-6a71-41d0-b312-d7e95f62d17c",
+		"name": "Assessment UiBank",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Ui Bank Login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"resp = pm.response.json();\r",
+							"console.log(resp)\r",
+							"\r",
+							"\r",
+							"pm.test(\"Test Passed\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "authority",
+						"value": "uibank-api.azurewebsites.net"
+					},
+					{
+						"key": "sec-ch-ua",
+						"value": "\" Not A;Brand\";v=\"99\", \"Chromium\";v=\"98\", \"Google Chrome\";v=\"98\""
+					},
+					{
+						"key": "accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "content-type",
+						"value": "application/json"
+					},
+					{
+						"key": "sec-ch-ua-mobile",
+						"value": "?0"
+					},
+					{
+						"key": "user-agent",
+						"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36"
+					},
+					{
+						"key": "sec-ch-ua-platform",
+						"value": "\"Windows\""
+					},
+					{
+						"key": "origin",
+						"value": "https://uibank.uipath.com"
+					},
+					{
+						"key": "sec-fetch-site",
+						"value": "cross-site"
+					},
+					{
+						"key": "sec-fetch-mode",
+						"value": "cors"
+					},
+					{
+						"key": "sec-fetch-dest",
+						"value": "empty"
+					},
+					{
+						"key": "referer",
+						"value": "https://uibank.uipath.com/"
+					},
+					{
+						"key": "accept-language",
+						"value": "en-US,en;q=0.9"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"username\":\"dbagya\",\"password\":\"U!b@nk#123\"}"
+				},
+				"url": {
+					"raw": "https://{{env_url}}/api/users/login",
+					"protocol": "https",
+					"host": [
+						"{{env_url}}"
+					],
+					"path": [
+						"api",
+						"users",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Accounts For the User",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"resp = pm.response.json();\r",
+							"console.log(resp)\r",
+							"\r",
+							"pm.test(\"Test Passed\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "authority",
+						"value": "uibank-api.azurewebsites.net"
+					},
+					{
+						"key": "sec-ch-ua",
+						"value": "\" Not A;Brand\";v=\"99\", \"Chromium\";v=\"98\", \"Google Chrome\";v=\"98\""
+					},
+					{
+						"key": "accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "authorization",
+						"value": "kddau2yo9pzI9uhYHHEurZUcXEDBvW0jKmPyY283bI5ffTvrXfbR6Qg70363HILc"
+					},
+					{
+						"key": "sec-ch-ua-mobile",
+						"value": "?0"
+					},
+					{
+						"key": "user-agent",
+						"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36"
+					},
+					{
+						"key": "sec-ch-ua-platform",
+						"value": "\"Windows\""
+					},
+					{
+						"key": "origin",
+						"value": "https://uibank.uipath.com"
+					},
+					{
+						"key": "sec-fetch-site",
+						"value": "cross-site"
+					},
+					{
+						"key": "sec-fetch-mode",
+						"value": "cors"
+					},
+					{
+						"key": "sec-fetch-dest",
+						"value": "empty"
+					},
+					{
+						"key": "referer",
+						"value": "https://uibank.uipath.com/"
+					},
+					{
+						"key": "accept-language",
+						"value": "en-US,en;q=0.9"
+					},
+					{
+						"key": "if-none-match",
+						"value": "W/\"b5-BT6S2tEElhtyiPl6Ym51RT4XstA\""
+					}
+				],
+				"url": {
+					"raw": "https://{{env_url}}/api/accounts?filter\\[where\\]\\[userId\\]={{UI_user_id}}",
+					"protocol": "https",
+					"host": [
+						"{{env_url}}"
+					],
+					"path": [
+						"api",
+						"accounts"
+					],
+					"query": [
+						{
+							"key": "filter\\[where\\]\\[userId\\]",
+							"value": "{{UI_user_id}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create an Account",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"resp = pm.response.json();\r",
+							"console.log(resp)\r",
+							"\r",
+							"\r",
+							"pm.test(\"Test Passed\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "authority",
+						"value": "uibank-api.azurewebsites.net"
+					},
+					{
+						"key": "sec-ch-ua",
+						"value": "\" Not A;Brand\";v=\"99\", \"Chromium\";v=\"98\", \"Google Chrome\";v=\"98\""
+					},
+					{
+						"key": "accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "content-type",
+						"value": "application/json"
+					},
+					{
+						"key": "authorization",
+						"value": "kddau2yo9pzI9uhYHHEurZUcXEDBvW0jKmPyY283bI5ffTvrXfbR6Qg70363HILc"
+					},
+					{
+						"key": "sec-ch-ua-mobile",
+						"value": "?0"
+					},
+					{
+						"key": "user-agent",
+						"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36"
+					},
+					{
+						"key": "sec-ch-ua-platform",
+						"value": "\"Windows\""
+					},
+					{
+						"key": "origin",
+						"value": "https://uibank.uipath.com"
+					},
+					{
+						"key": "sec-fetch-site",
+						"value": "cross-site"
+					},
+					{
+						"key": "sec-fetch-mode",
+						"value": "cors"
+					},
+					{
+						"key": "sec-fetch-dest",
+						"value": "empty"
+					},
+					{
+						"key": "referer",
+						"value": "https://uibank.uipath.com/"
+					},
+					{
+						"key": "accept-language",
+						"value": "en-US,en;q=0.9"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"friendlyName\":\"DK\",\"type\":\"savings\",\"userId\":\"620f1e0b8932d4005f2a887a\",\"balance\":100,\"accountNumber\":17577495}"
+				},
+				"url": {
+					"raw": "https://{{env_url}}/api/accounts",
+					"protocol": "https",
+					"host": [
+						"{{env_url}}"
+					],
+					"path": [
+						"api",
+						"accounts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Profile Details Verification",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"Durga\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "authority",
+						"value": "uibank-api.azurewebsites.net"
+					},
+					{
+						"key": "sec-ch-ua",
+						"value": "\" Not A;Brand\";v=\"99\", \"Chromium\";v=\"98\", \"Google Chrome\";v=\"98\""
+					},
+					{
+						"key": "accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "authorization",
+						"value": "kddau2yo9pzI9uhYHHEurZUcXEDBvW0jKmPyY283bI5ffTvrXfbR6Qg70363HILc"
+					},
+					{
+						"key": "sec-ch-ua-mobile",
+						"value": "?0"
+					},
+					{
+						"key": "user-agent",
+						"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36"
+					},
+					{
+						"key": "sec-ch-ua-platform",
+						"value": "\"Windows\""
+					},
+					{
+						"key": "origin",
+						"value": "https://uibank.uipath.com"
+					},
+					{
+						"key": "sec-fetch-site",
+						"value": "cross-site"
+					},
+					{
+						"key": "sec-fetch-mode",
+						"value": "cors"
+					},
+					{
+						"key": "sec-fetch-dest",
+						"value": "empty"
+					},
+					{
+						"key": "referer",
+						"value": "https://uibank.uipath.com/"
+					},
+					{
+						"key": "accept-language",
+						"value": "en-US,en;q=0.9"
+					},
+					{
+						"key": "if-none-match",
+						"value": "W/\"147-ac4A9Tzr2p8PtGNkfT7XUHa8rg8\""
+					}
+				],
+				"url": {
+					"raw": "https://{{env_url}}/api/users?filter\\[where\\]\\[userId\\]={{UI_user_id}}",
+					"protocol": "https",
+					"host": [
+						"{{env_url}}"
+					],
+					"path": [
+						"api",
+						"users"
+					],
+					"query": [
+						{
+							"key": "filter\\[where\\]\\[userId\\]",
+							"value": "{{UI_user_id}}"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

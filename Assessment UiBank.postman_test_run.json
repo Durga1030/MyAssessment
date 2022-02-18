@@ -1,0 +1,142 @@
+{
+	"id": "bec41a02-2b08-451e-a6ef-40a1ec08cbf9",
+	"name": "Assessment UiBank",
+	"timestamp": "2022-02-18T05:44:01.307Z",
+	"collection_id": "16380235-d52bc754-6a71-41d0-b312-d7e95f62d17c",
+	"folder_id": 0,
+	"environment_id": "16380235-95628724-a98f-4aa4-9a17-c41a55c613cd",
+	"totalPass": 4,
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "9d3a1823-4e95-48a0-b66b-84501c7d3f52",
+			"name": "Ui Bank Login",
+			"url": "https://uibank-api.azurewebsites.net/api/users/login",
+			"time": 348,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Test Passed": true
+			},
+			"testPassFailCounts": {
+				"Test Passed": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				348
+			],
+			"allTests": [
+				{
+					"Test Passed": true
+				}
+			]
+		},
+		{
+			"id": "d22179d4-145b-41fe-a52f-9c8eebe48735",
+			"name": "Get All Accounts For the User",
+			"url": "https://uibank-api.azurewebsites.net/api/accounts?filter\\[where\\]\\[userId\\]=620f1e0b8932d4005f2a887a",
+			"time": 210,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Test Passed": true
+			},
+			"testPassFailCounts": {
+				"Test Passed": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				210
+			],
+			"allTests": [
+				{
+					"Test Passed": true
+				}
+			]
+		},
+		{
+			"id": "dbce7f99-7cdb-4d0a-adbb-456d865666ff",
+			"name": "Create an Account",
+			"url": "https://uibank-api.azurewebsites.net/api/accounts",
+			"time": 227,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Test Passed": true
+			},
+			"testPassFailCounts": {
+				"Test Passed": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				227
+			],
+			"allTests": [
+				{
+					"Test Passed": true
+				}
+			]
+		},
+		{
+			"id": "ee64bb15-0524-4fc1-a899-6202af0e89bc",
+			"name": "Profile Details Verification",
+			"url": "https://uibank-api.azurewebsites.net/api/users?filter\\[where\\]\\[userId\\]=620f1e0b8932d4005f2a887a",
+			"time": 198,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Body matches string": true
+			},
+			"testPassFailCounts": {
+				"Body matches string": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				198
+			],
+			"allTests": [
+				{
+					"Body matches string": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 983,
+	"collection": {
+		"requests": [
+			{
+				"id": "9d3a1823-4e95-48a0-b66b-84501c7d3f52",
+				"method": "POST"
+			},
+			{
+				"id": "d22179d4-145b-41fe-a52f-9c8eebe48735",
+				"method": "GET"
+			},
+			{
+				"id": "dbce7f99-7cdb-4d0a-adbb-456d865666ff",
+				"method": "POST"
+			},
+			{
+				"id": "ee64bb15-0524-4fc1-a899-6202af0e89bc",
+				"method": "GET"
+			}
+		]
+	}
+}
